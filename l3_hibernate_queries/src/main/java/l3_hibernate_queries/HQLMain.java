@@ -21,17 +21,17 @@ public class HQLMain {
 		
 		insert(sf);
 		
-		findAll(sf);
+		//findAll(sf);
 		findById(sf,2);
-		paginate(sf);
-		sqlFunctionSum(sf);
-		findAllOrderBy(sf);
+		//paginate(sf);
+		//sqlFunctionSum(sf);
+		//findAllOrderBy(sf);
 		
 		//deleteEmployeeUsingSession(sf,1 );
 		//deleteEmployeeUsingSession2(sf,3);
 		//deleteUsingHQL(sf,2);
 		
-		update(sf,3);
+		//update(sf,3);
 		sf.close();	
 	}
 	
@@ -57,7 +57,10 @@ public class HQLMain {
 		Transaction tx = s.beginTransaction();
 		
 		Employee emp = (Employee) s.get(Employee.class, id);
+		System.out.println("Check if session contains employee"+s.contains(emp));
 		
+		s.evict(emp);
+		System.out.println("Check if session contains employee"+s.contains(emp));
 		System.out.println(emp);
 		s.flush();
 		tx.commit();
@@ -184,6 +187,16 @@ public class HQLMain {
 		s.flush();
 		tx.commit();
 		s.close();
+	}
+	
+	public static void selectQueryUsingSQL(SessionFactory sf, int id) {
+		Session s = sf.openSession();
+		Transaction tx = s.beginTransaction();
+		
+		Query query = (Query) s.createSelectionQuery("select * from Employee e");
+		
+		
+		
 	}
 	
 	

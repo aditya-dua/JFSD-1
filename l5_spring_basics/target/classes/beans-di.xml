@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+  
+   >
+
+	<bean id="emp" class="l5_spring_basics.Employee" scope = "prototype">
+		<property name="name" value="Aditya"></property>
+		<property name="phone" value="12345"></property>
+		<property name="address" ref="add"></property>
+		
+	</bean>
+	
+	<bean id="emp2" class="l5_spring_basics.Employee" scope = "prototype">
+		<constructor-arg index="0" value="Aditya from C"></constructor-arg>
+		<constructor-arg index="1" value="12345 from C"></constructor-arg>
+		<constructor-arg index="2" ref="add"></constructor-arg>
+		
+	</bean>
+	
+	<bean id="add" class="l5_spring_basics.Address" scope = "prototype">
+		<property name="street" value="Some Street in Delhi"></property>
+		<property name="city" value="South Delhi"></property>
+		
+	</bean>
+	
+</beans>

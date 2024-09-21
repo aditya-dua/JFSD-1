@@ -1,0 +1,43 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+   default-init-method="init"
+   default-destroy-method="destroy"
+   >
+
+	<bean id="bean1" class="l6_spring_basics_2.JavaCollectionsDI" >
+		
+		<property name="addressList">
+			<list>
+				<value>India</value>
+				<value>USA</value>
+				<value>UK</value>
+				<value>India</value>
+			</list>
+		</property>
+		<property name="citySet">
+			<set>
+				<value>Delhi</value>
+				<value>Banglore</value>
+				<value>Hyderabad</value>
+				<value>Delhi</value>
+			</set>
+		</property>
+		<property name="productMap">
+			<map>
+				<entry key="1" value="iphone 16"></entry>
+				<entry key="2" value="iphone 16 Pro"></entry>
+				<entry key="3" value="iphone 16 Pro Max"></entry>
+				<entry key="1" value="iphone 16 New"></entry>
+				<entry key="4" value="iphone 16"></entry>
+				
+			</map>
+		</property>
+	</bean>
+	
+	
+</beans>

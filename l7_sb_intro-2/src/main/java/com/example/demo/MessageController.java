@@ -10,6 +10,7 @@ public class MessageController {
 	public String test() {
 		return "Test API works!!";
 	}
+	
 	@GetMapping("/test/text")
 	public Message text() {
 		Message m = new Message();

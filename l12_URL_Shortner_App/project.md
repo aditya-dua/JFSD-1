@@ -51,6 +51,21 @@ public class User {
     // Additional fields and Getters/Setters
 }
 ```
+In a new package repository, create an interface URLRepository.java to interact with the database.
+
+```java
+
+package com.example.urlshortener.repository;
+
+import com.example.urlshortener.model.URL;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
+
+public interface URLRepository extends JpaRepository<URL, Long> {
+    Optional<URL> findByShortUrl(String shortUrl);
+    Optional<URL> findByOriginalUrl(String originalUrl);
+}
+```
 
 You may also need a `UserRepository` to retrieve and manage users, if necessary:
 
@@ -64,6 +79,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // Additional query methods if needed
 }
 ```
+
+
+
 
 ### Step 3: Update the URL Service
 
